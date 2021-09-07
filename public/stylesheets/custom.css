@@ -1,0 +1,129 @@
+/* Remove default bullets */
+ul, #myUL {
+    list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+
+  #myUL li {
+      margin: 1px;
+      padding: 3px;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+  
+  /* Hide the nested list */
+  .nested {
+    display: none;
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }
+
+  .treeNode{
+    margin-top: 5px;
+  }
+  .treeNode, .treeNode ul{
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    padding-left:9px;
+  }
+  .treeNode *:before{
+    width:15px;
+    height:15px;
+    display:inline-block;
+  }
+  .treeNode label{
+    cursor: pointer;
+    font-family: NotoSansKrMedium, sans-serif !important;
+    font-size: 14px;
+    color: black;
+    content: "\25B6";
+    margin-top: 5px;
+  }
+  .treeNode label:hover{
+    color: black;
+  }
+  .treeNode label:before{
+    content: "\25B6";
+    margin-right: 3px;
+    
+  }
+  .treeNode label.lastTree:before{
+    content: "\25B6";
+  }
+  .treeNode label:hover:before{
+    content: "\25B6";
+    
+  }
+  .treeNode label.lastTree:hover:before{
+    content: "\25B6";
+  }
+  .treeNode input[type="checkbox"] {
+    display: none;
+  }
+  .treeNode input[type="checkbox"]:checked~ul {
+    display: none;
+  }
+  .treeNode input[type="checkbox"]:checked+label:before{
+    content: "\25B6";
+  }
+  .treeNode input[type="checkbox"]:checked+label:hover:before{
+    content: "\25B6";
+  }
+  
+  .treeNode input[type="checkbox"]:checked+label.lastTree:before{
+    content: "\25B6";
+  }
+  .treeNode input[type="checkbox"]:checked+label.lastTree:hover:before{
+    content: "\25B6";
+  }
+
+  #table-wrapper {
+    position:relative;
+    
+  }
+  #table-scroll {
+    height:500px;
+    overflow:auto; 
+    /*overflow-x:auto;*/
+    margin-top:20px;
+  }
+  #table-wrapper table {
+    
+    overflow-x:auto;
+    /*display:block;*/
+    width:100%;  
+  }
+
+  #table-wrapper table thead th .texthead {
+    
+    position:absolute;   
+    top:-20px;
+    z-index:2;
+    height:20px;
+    width:35%;
+    border:1px solid 
+  }
