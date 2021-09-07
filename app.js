@@ -33,8 +33,8 @@ app.use(session({
   saveUninitialized: true,
   store: new MySQLStore({
     host: 'localhost',
-    port: 3306,
-    user: 'root',
+    port: 23306,
+    user: 'ttdb',
     password: 'innonet160905',
     database: 'treetalker_db'
   })
@@ -46,8 +46,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // mysql connection
 const connection = mysql.createConnection({
-  user: "root",
+  user: "ttdb",
   password: "innonet160905",
+  port: 23306,
   database: "treetalker_db"
 });
 
@@ -84,7 +85,7 @@ app.get('/index', function (req, res) {
   var userLoginId = req.session.userid;
   
   if (req.session.is_logined == true) {
-    connection.query('SELECT dv_sn FROM user LEFT JOIN device ON device.user_num = user.user_count WHERE user.user_id=? AND device.dv_type="TTCloud"',
+    connection.query('SELECT dv_sn FROM user LEFT JOIN device ON device.user_no = user.user_no WHERE user.user_id=? AND device.dv_type="TTCloud"',
       [userLoginId], function (err, rows) {
         if (err) throw err;
         var TTCloudSN = [];
@@ -92,7 +93,7 @@ app.get('/index', function (req, res) {
           TTCloudSN[i] = rows[i].dv_sn;
         }
 
-        connection.query('SELECT dv_sn, dv_con FROM user LEFT JOIN device ON device.user_num = user.user_count WHERE user.user_id=? AND dv_type="TT+"',
+        connection.query('SELECT dv_sn, dv_con FROM user LEFT JOIN device ON device.user_no = user.user_no WHERE user.user_id=? AND dv_type="TT+"',
           [userLoginId], function (err, data) {
             if (err) throw err;
             var TT_plusSN = [];
@@ -288,6 +289,7 @@ app.post('/register', function (req, res) {
   var phone = req.body.phone;
 
   connection.query('SELECT * FROM user where user_id=?', [id], function (err, data) {
+    console.log(data);
     if (data.length == 0) {
 
       connection.query('INSERT INTO user(user_id, user_pw, user_name, user_email, user_pnum) VALUES(?,?,?,?,?)', [

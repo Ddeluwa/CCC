@@ -14,57 +14,176 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
 
     <!-- Custom styles for this template-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet">-->
+    <link href="stylesheets/custom.css" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="stylesheets/styles.199601a382cef5d41b07.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/354885cafc.js" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="javascripts/0.js"></script>
+    <script charset="utf-8" src="javascripts/6.js"></script>
+    <script charset="utf-8" src="javascripts/main.js"></script>
+    <script charset="utf-8" src="javascripts/scripts.js"></script>
+    <script charset="utf-8" src="javascripts/pollyfills.js"></script>
+    <script charset="utf-8" src="javascripts/runtime.js"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        .navbar[_ngcontent-c2]{border-bottom:3px solid #ddd}.navbar[_ngcontent-c2]
+        a[_ngcontent-c2]{cursor:pointer}@media (min-width:768px){.navbar-icon-label[_ngcontent-c2]{display:none}.navbar[_ngcontent-c2]
+        .navbar-badge[_ngcontent-c2]{position:relative;top:-3px;display:inline-block;float:none;margin:0 0 0 -8px;padding:1 2px;vertical-align:top;font-size:8px;font-weight:700;line-height:10px}}@media (max-width:768px){.mb-resp[_ngcontent-c2]{margin-bottom:1rem}}
+    </style>
+    <style>.tree-container[_ngcontent-c3]{height:85vh;overflow:auto}</style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="title">
-                <i class="fab fa-pied-piper-square"></i>
-                <a href="/">PRO</a>
-            </div>
-            <div class="menu_bar">
-                <ul>
-                    <li><a href="">show</a></li>
-                    <li><a href="">test</a></li>
-                    <li><a href="/login">login</a></li>
-                    <li><a href="/register">register</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <app-root _nghost-c0 ng-version="7.0.2">
+        <router-outlet _ngcontent-c0=""></router-outlet>
+        <app-main _nghost-c1>
+            <app-header _ngcontent-c1 _nghost-c2>
+                <nav _ngcontent-c2 class="navbar navbar-expand-md navbar-light">
+                    <div _ngcontent-c2 class="container">
+                        <a _ngcontent-c2 class="navbar-brand" href="/">
+                            <img _ngcontent-c2 alt height="50" src="images/innonet.svg" width=50>
+                        </a>
+                        <button _ngcontent-c2 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+                            <span _ngcontent-c2 class="navbar-toggler-icon"></span>
+                            </span>
+                        </button>
+                        <div _ngcontent-c2 class="collapse navbar-collapse" id="navbarNav">
+                            <ul _ngcontent-c2 class="navbar-nav mr-auto">
+                                <li _ngcontent-c2="" class="nav-item active" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link" href="/index">
+                                        수목센서 
+                                    </a><!---->
+                                </li>
+                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link" href="/index">
+                                        설정 
+                                    </a><!---->
+                                </li>
+                                <!--<li _ngcontent-c2="" class="nav-item active" ngbdropdown="" routerlinkactive="active">
+                                    <a _ngcontent-c2="" class="nav-link" href="/index">
+                                        수목센서 
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <ul _ngcontent-c2 class="navbar-nav ml-auto">
+                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link active" href="/index">
+                                        <%= name %> 
+                                    </a><!---->
+                                </li>
+                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link" href="/mypage">
+                                        개인정보수정
+                                    </a><!---->
+                                </li>
+                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link" href="/logout">
+                                        로그아웃 
+                                    </a><!---->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </app-header>
+            <div _ngcontent-c1 class="container my-3">
+                <router-outlet _ngcontent-c1></router-outlet>
+                <app-monitor _nghost-c3>
+                    <div _ngcontent-c3 class="container">
+                        <div _ngcontent-c3 class="row">
+                            <tree-root _ngcontent-c3 class="col-2 tree-container">
+                                <tree-viewport>
+                                    <div class="ng-star-inserted" style="height: 410px;">
+                                        <div class="angular-tree-component">
+                                            <div class="ng-star-inserted" style="margin-top: 0px;">
+                                                <% for (var i = 0; i < TTCloudSN.length; i++) { %>
+                                                    <tree-node class="ng-star-inserted">
+                                                        <div class="tree-node-level-1 tree-node tree-node-collapsed ng-star-inserted">
+                                                            <tree-node-drop-slot class="ng-star-inserted">
+                                                                <div class="node-drop-slot"></div>
+                                                            </tree-node-drop-slot>
+                                                            <tree-node-wrapper>
+                                                                <div class="node-wrapper ng-star-inserted" style="padding-left:0px;">
+                                                                    <tree-node-expander>
+                                                                        <span class="toggle-children-wrapper ng-star-inserted toggle-children-wrapper-expanded">
+                                                                            <span class="toggle-children"></span>
+                                                                        </span>
+                                                                    </tree-node-expander>
+                                                                    <div class="node-content-wrapper" draggable="false">
+                                                                        <tree-node-content>
+                                                                            <span class="ng-star-inserted" onclick="location.href='/index/<%=TTCloudSN[i]%>'"><%= TTCloudSN[i] %></span>
+                                                                        </tree-node-content>
+                                                                    </div>
+                                                                </div>
+                                                            </tree-node-wrapper>
+                                                            <tree-node-children>
+                                                                <% for (var j = 0; j < TTplusSN.length; j++) { %>
+                                                                <div class="tree-children tree-children-no-padding ng-star-inserted" style>
 
-    <section>
-        <div class="container_form">
-            <form method="post" action="/register"> 
-                <ul>
-                    <li>
-                        <label>아이디</label>
-                        <input type="text" name='id' required>
-                    </li>
-                    <li>
-                        <label>비밀번호</label>
-                        <input type="password" name="pw" required>
-                    </li>
-                    <li>
-                        <label>이름</label>
-                        <input type="text" name="name" required>
-                    </li>
-                    <li>
-                        <label>이메일</label>
-                        <input type="email" name="email" required>
-                    </li>
-                    <li>
-                        <label>휴대폰 번호</label>
-                        <input type="text" name="phone" required>
-                    </li>
-                </ul>
-                <input type="submit" value="회원가입">
-            </form>
-        </div>
-    </section>
+                                                                </div>
+                                                                <% } %>
+                                                            </tree-node-children>
+                                                        </div>
+                                                    </tree-node>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tree-viewport>
+                            </tree-root>
+                            <div _ngcontent-c3 class="col-10">
+                                <router-outlet _ngcontent-c3></router-outlet>
+                                <% if (is_TTCloud == false && is_TTplus == false) { %>
+                                    <app-monitor-start _nghost-c4>
+                                        <div _ngcontent-c4 class="jumbotron jumbotron-fluid">
+                                            <div _ngcontent-c4 class="container text-center">
+                                                <h1 _ngcontent-c4 class="display-5">
+                                                    <i _ngcontent-c4 class="fas fa-info"></i>
+                                                    알림
+                                                </h1>
+                                                <p _ngcontent-c4 class="lead">그룹을 선택하세요</p>
+                                            </div>
+                                        </div>
+                                    </app-monitor-start>
+                                <% } else if (is_TTCloud == true && is_TTplus == false) { %>
+                                    <app-group-monitor _nghost-c5 class="ng-star-inserted">
+                                        <div _ngcontent-c5 class="container d-flex flex-row justify-content-between py-3">
+                                            <h5 _ngcontent-c5 class="container text-primary">
+                                                <span _ngcontent-c5 class="ng-star-inserted">
+                                                    <%= currentTTCloudSN %>
+                                                </span>
+                                            </h5>
+                                            <button _ngcontent-c5 class="btn btn-secondary" type="button" onclick="location.href='/download'">
+                                                Excel
+                                            </button>
+                                        </div>
+                                        <ul _ngcontent-c5 class="nav nav-tabs">
+                                            <li _ngcontent-c5 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">정보</a>
+                                            </li>
+                                            <!--<li _ngcontent-c5 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">통계</a>
+                                            </li>
+                                            <li _ngcontent-c5 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">로그</a>
+                                            </li>-->
+                                        </ul>
+                                    </app-group-monitor>
+                                    
+                                <% } else if (is_TTCloud == false && is_TTplus == true) { %>
+
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </app-monitor>
+            </div>
+        </app-main>
+    </app-root>
 </body>
 </html>
