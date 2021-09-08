@@ -49,6 +49,7 @@ const connection = mysql.createConnection({
   user: "ttdb",
   password: "innonet160905",
   port: 23306,
+  dateString: "date",
   database: "treetalker_db"
 });
 
@@ -261,8 +262,14 @@ app.get('/index/:TTCloud/:TTplus', function (req, res) {
                     +'d49.dt_NI_610, d49.dt_NI_680, d49.dt_NI_730, d49.dt_NI_760, d49.dt_NI_810, d49.dt_NI_860, d49.dt_VLS_450, d49.dt_VLS_500, d49.dt_VLS_550, d49.dt_VLS_570, d49.dt_VLS_600, d49.dt_VLS_650 '
                     +'FROM datatype_4D 4D LEFT JOIN datatype_49 d49 ON 4D.dv_sn = d49.dv_sn AND 4D.dt_time = d49.dt_time WHERE 4D.dv_sn = ? ORDER BY 4D.dt_time';
   connection.query(queryString, [req.params.TTplus], function(err, rows){
+    
     if (err) throw err;
+    var convert_TTplusData = [];
+    //Tref
+    for(var i = 0; i < rows.length; i++){
+    }
 
+    
     req.session.currentTTCloud = req.params.TTCloud;
     req.session.currentTTplusSN = req.params.TTplus;
     req.session.TTplusData = rows;
@@ -384,7 +391,7 @@ app.get('/ttCloudData', function (req, res) {
     if (rows.length === 0) {
       if (data[0] !== serialNumber.toUpperCase()) {
         // 디바이스 정보 저장
-        connection.query('INSERT INTO device (dv_sn, dv_type, user_num, dv_con) VALUES (?,?,?,?)', [data[0], 'TT+', 1, serialNumber], function (err, result_device) {
+        connection.query('INSERT INTO device (dv_sn, dv_type, user_no, dv_con) VALUES (?,?,?,?)', [data[0], 'TT+', 2, serialNumber.toUpperCase()], function (err, result_device) {
           if (err) throw err;
           else {
             console.log('DATA SAVE');
@@ -393,7 +400,7 @@ app.get('/ttCloudData', function (req, res) {
         });
       } else if (data[0] === serialNumber.toUpperCase()) {
         //user_num은 임시로 1번
-        connection.query('INSERT INTO device (dv_sn, dv_type, user_num, dv_con) VALUES (?,?,?,?)', [data[0], 'TTCloud', 1, serialNumber], function (err, result_device) {
+        connection.query('INSERT INTO device (dv_sn, dv_type, user_no, dv_con) VALUES (?,?,?,?)', [data[0], 'TTCloud', 2, serialNumber.toUpperCase()], function (err, result_device) {
           if (err) throw err;
           else {
             console.log('DATA SAVE');

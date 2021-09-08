@@ -22,7 +22,12 @@
     <link href="stylesheets/custom.css" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
     <link href="stylesheets/styles.199601a382cef5d41b07.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/354885cafc.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script charset="utf-8" src="javascripts/0.js"></script>
     <script charset="utf-8" src="javascripts/6.js"></script>
     <script charset="utf-8" src="javascripts/main.js"></script>
@@ -60,7 +65,7 @@
                                     </a><!---->
                                 </li>
                                 <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
-                                    <a _ngcontent-c2="" class="nav-link" href="/index">
+                                    <a _ngcontent-c2="" class="nav-link" href="/setting">
                                         설정 
                                     </a><!---->
                                 </li>
@@ -123,11 +128,40 @@
                                                             </tree-node-wrapper>
                                                             <tree-node-children>
                                                                 <% for (var j = 0; j < TTplusSN.length; j++) { %>
+                                                                <% if (TTplusSN[j].con == TTCloudSN[i]) { %>    
                                                                 <div class="tree-children tree-children-no-padding ng-star-inserted" style>
-
+                                                                    <tree-node-collection class="ng-star-inserted">
+                                                                        <div class="ng-star-inserted" style="margin-top:0px;">
+                                                                            <div class="tree-node-level-2 tree-node tree-node-expanded ng-star-inserted">
+                                                                                <tree-node-drop-slot class="ng-star-inserted">
+                                                                                    <div class="node-drop-slot"></div>
+                                                                                </tree-node-drop-slot>
+                                                                                <tree-node-wrapper>
+                                                                                    <div class="node-wrapper ng-star-inserted" style="padding-left: 10px;">
+                                                                                        <tree-node-expander>
+                                                                                            <span class="toggle-children-wrapper toggle-children-wrapper-expanded ng-star-inserted">
+                                                                                                <span class="toggle-children"></span>
+                                                                                            </span>
+                                                                                        </tree-node-expander>
+                                                                                        <div class="node-content-wrapper" draggable="false">
+                                                                                            <tree-node-content>
+                                                                                                <span class="ng-star-inserted" onclick="location.href='/index/<%=TTCloudSN[i]%>/<%=TTplusSN[j].sn%>'">
+                                                                                                    <%= TTplusSN[j].sn %>
+                                                                                                </span>
+                                                                                            </tree-node-content>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </tree-node-wrapper>
+                                                                            </div>
+                                                                        </div>
+                                                                    </tree-node-collection>
                                                                 </div>
                                                                 <% } %>
+                                                                <% } %>
                                                             </tree-node-children>
+                                                            <tree-node-drop-slot>
+                                                                <div class="node-drop-slot"></div>
+                                                            </tree-node-drop-slot>
                                                         </div>
                                                     </tree-node>
                                                 <% } %>
@@ -151,20 +185,20 @@
                                         </div>
                                     </app-monitor-start>
                                 <% } else if (is_TTCloud == true && is_TTplus == false) { %>
-                                    <app-group-monitor _nghost-c5 class="ng-star-inserted">
-                                        <div _ngcontent-c5 class="container d-flex flex-row justify-content-between py-3">
-                                            <h5 _ngcontent-c5 class="container text-primary">
-                                                <span _ngcontent-c5 class="ng-star-inserted">
+                                    <app-group-monitor _nghost-c4 class="ng-star-inserted">
+                                        <div _ngcontent-c4 class="container d-flex flex-row justify-content-between py-3">
+                                            <h5 _ngcontent-c4 class="container text-primary">
+                                                <span _ngcontent-c4 class="ng-star-inserted">
                                                     <%= currentTTCloudSN %>
                                                 </span>
                                             </h5>
-                                            <button _ngcontent-c5 class="btn btn-secondary" type="button" onclick="location.href='/download'">
+                                            <button _ngcontent-c4 class="btn btn-secondary" type="button" onclick="location.href='/download'">
                                                 Excel
                                             </button>
                                         </div>
-                                        <ul _ngcontent-c5 class="nav nav-tabs">
-                                            <li _ngcontent-c5 class="nav-item ng-star-inserted">
-                                                <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">정보</a>
+                                        <ul _ngcontent-c4 class="nav nav-tabs">
+                                            <li _ngcontent-c4 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c4 class="nav-link active" routerlinkactive="active" href="/index/<%=currentTTCloudSN %>">정보</a>
                                             </li>
                                             <!--<li _ngcontent-c5 class="nav-item ng-star-inserted">
                                                 <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">통계</a>
@@ -173,10 +207,234 @@
                                                 <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">로그</a>
                                             </li>-->
                                         </ul>
+                                        <router-outlet _ngcontent-c4></router-outlet>
+                                        <app-group-info _nghost-c5 class="ng-star-inserted">
+                                            <perfect-scrollbar _ngcontent-c5 class="tab-container px-2">
+                                                <div style="position: static;" class="ps ps--active-y">
+                                                    <div class="ps-content">
+                                                        <div _ngcontent-c5 class="container h-60">
+                                                            <div _ngcontent-c5 class="table-container">
+                                                                <div style="position: static;" class="ps">
+                                                                    <div class="ps-content" style="height: 700px; overflow: auto;">
+                                                                        <table _ngcontent-c5 class="table table-hover ng-star-inserted" >
+                                                                            <thead style="background-color: #fff; text-align: center;">
+                                                                                <tr _ngcontent-c5 class="mat-header-row ng-star-inserted" mat-header-row role="row">
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;">
+                                                                                        <div class="mat-sort-header-container" style="width: 70px;">
+                                                                                            시리얼번호
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 200px;">
+                                                                                            업데이트 시간
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 80px;">
+                                                                                            RSSI No.1
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 80px;">
+                                                                                            RSSI No.2
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            배터리 잔량 (mV)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 80px;">
+                                                                                            펌웨어 버전
+                                                                                        </div>
+                                                                                    </th>
+                                                                                </tr>    
+                                                                            </thead>
+                                                                            <tbody style="text-align: center;">
+                                                                                <% for (var i = 0; i < TTCloudData.length; i++) { %>
+                                                                                <tr _ngcontent-c5 class="mat-row ng-star-inserted" mat-row role="row">
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell" scope="row">
+                                                                                        <%= TTCloudData[i].dv_sn %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= TTCloudData[i].dt_time %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= TTCloudData[i].dt_RSSI_first %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= TTCloudData[i].dt_RSSI_second %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= TTCloudData[i].dt_battery_level %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= TTCloudData[i].dt_firmware_version %>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <% } %>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </perfect-scrollbar>
+                                        </app-group-info>
                                     </app-group-monitor>
                                     
                                 <% } else if (is_TTCloud == false && is_TTplus == true) { %>
-
+                                    <app-group-monitor _nghost-c5 class="ng-star-inserted">
+                                        <div _ngcontent-c5 class="container d-flex flex-row justify-content-between py-3">
+                                            <h5 _ngcontent-c5 class="container text-primary">
+                                                <span _ngcontent-c5 class="ng-star-inserted">
+                                                    <%= currentTTplusSN %>
+                                                </span>
+                                            </h5>
+                                            <button _ngcontent-c5 class="btn btn-secondary" type="button" onclick="location.href='/download'">
+                                                Excel
+                                            </button>
+                                        </div>
+                                        <ul _ngcontent-c5 class="nav nav-tabs">
+                                            <li _ngcontent-c5 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c5 class="nav-link active" routerlinkactive="active" href="/index/<%=currentTTCloudSN %>/<%=currentTTplusSN%>">정보</a>
+                                            </li>
+                                            <!--<li _ngcontent-c5 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">통계</a>
+                                            </li>
+                                            <li _ngcontent-c5 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c5 class="nav-link" routerlinkactive="active" href="/index">로그</a>
+                                            </li>-->
+                                        </ul>
+                                        <router-outlet _ngcontent-c4></router-outlet>
+                                        <app-group-info _nghost-c5 class="ng-star-inserted">
+                                            <perfect-scrollbar _ngcontent-c5 class="tab-container px-2">
+                                                <div style="position: static;" class="ps ps--active-y">
+                                                    <div class="ps-content">
+                                                        <div _ngcontent-c5 class="container h-60">
+                                                            <div _ngcontent-c5 class="table-container">
+                                                                <div style="position: static;" class="ps">
+                                                                    <div class="ps-content" style="height: 700px; overflow: auto;">
+                                                                        <table _ngcontent-c5 class="table table-hover ng-star-inserted" >
+                                                                            <thead style="background-color: #fff; ">
+                                                                                <tr _ngcontent-c5 class="mat-header-row ng-star-inserted" mat-header-row role="row" style="text-align:center;">
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;">
+                                                                                        <div class="mat-sort-header-container" style="width: 80px;">
+                                                                                            시리얼 번호
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 200px;">
+                                                                                            업데이트 시간
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            Before TRef (℃)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            After TRef (℃)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            Before THeat (℃)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            After THeat (℃)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            성장률 (%)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            배터리 잔량 (mV)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            습도 (%)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            온도 (℃)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            안정성(기울어짐)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            물줄기
+                                                                                        </div>
+                                                                                    </th>
+                                                                                </tr>    
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <% for (var i = 0; i < TTplusData.length; i++) { %>
+                                                                                <tr _ngcontent-c5 class="mat-row ng-star-inserted" mat-row role="row" style="text-align:center;">
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell" scope="row">
+                                                                                        <%= TTplusData[i].dv_sn %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= TTplusData[i].dt_time %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_Tref_before).toFixed(2) %> 
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_Tref_after).toFixed(2) %> 
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_Theat_before).toFixed(2) %> 
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_Theat_after).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_growth_rate).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_battery_vol).toFixed(0) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%=TTplusData[i].dt_air_humidity %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%=TTplusData[i].dt_air_temp %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_stability).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_stem).toFixed(2) %>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <% } %>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </perfect-scrollbar>
+                                        </app-group-info>
+                                    </app-group-monitor>
                                 <% } %>
                             </div>
                         </div>
