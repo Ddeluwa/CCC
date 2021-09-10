@@ -65,7 +65,7 @@
                                     </a><!---->
                                 </li>
                                 <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
-                                    <a _ngcontent-c2="" class="nav-link" href="/setting">
+                                    <a _ngcontent-c2="" class="nav-link" href="/setting/register">
                                         설정 
                                     </a><!---->
                                 </li>
@@ -81,11 +81,11 @@
                                         <%= name %> 
                                     </a><!---->
                                 </li>
-                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                <!--<li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active">
                                     <a _ngcontent-c2="" class="nav-link" href="/mypage">
                                         개인정보수정
-                                    </a><!---->
-                                </li>
+                                    </a>
+                                </li>-->
                                 <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
                                     <a _ngcontent-c2="" class="nav-link" href="/logout">
                                         로그아웃 
@@ -291,7 +291,7 @@
                                         <div _ngcontent-c5 class="container d-flex flex-row justify-content-between py-3">
                                             <h5 _ngcontent-c5 class="container text-primary">
                                                 <span _ngcontent-c5 class="ng-star-inserted">
-                                                    <%= currentTTplusSN %>
+                                                    <%= currentTTCloudSN %> > <%= currentTTplusSN %>
                                                 </span>
                                             </h5>
                                             <button _ngcontent-c5 class="btn btn-secondary" type="button" onclick="location.href='/download'">
@@ -381,6 +381,66 @@
                                                                                             물줄기
                                                                                         </div>
                                                                                     </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            NI610 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            NI680 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            NI730 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            NI760 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            NI810 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            NI860 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            VLS450 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            VLS500 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            VLS550 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            VLS570 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            VLS600 (MHz)
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <th _ngcontent-c5 class="mat-header-cell ng-tns-c8-0 mat-table-sticky ng-star-inserted" mat-header-cell mat-sort-header role="columnheader" style="top: 0px; position: sticky; z-index: 100;" scope="col">
+                                                                                        <div class="mat-sort-header-container" style="width: 100px;">
+                                                                                            VLS650 (MHz)
+                                                                                        </div>
+                                                                                    </th>
                                                                                 </tr>    
                                                                             </thead>
                                                                             <tbody>
@@ -421,6 +481,42 @@
                                                                                     </td>
                                                                                     <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
                                                                                         <%= parseFloat(TTplusData[i].dt_stem).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_NI_610).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_NI_680).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_NI_730).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_NI_760).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_NI_810).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_NI_860).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_VLS_450).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_VLS_500).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_VLS_550).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_VLS_570).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_VLS_600).toFixed(2) %>
+                                                                                    </td>
+                                                                                    <td _ngcontent-c5 class="mat-cell ng-star-inserted" mat-cell role="gridcell">
+                                                                                        <%= parseFloat(TTplusData[i].dt_VLS_650).toFixed(2) %>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <% } %>

@@ -93,18 +93,20 @@ app.get('/index', function (req, res) {
         for (var i = 0; i < rows.length; i++){
           TTCloudSN[i] = rows[i].dv_sn;
         }
-
+        req.session.TTCloudSN = TTCloudSN;
         connection.query('SELECT dv_sn, dv_con FROM user LEFT JOIN device ON device.user_no = user.user_no WHERE user.user_id=? AND dv_type="TT+"',
           [userLoginId], function (err, data) {
             if (err) throw err;
-            var TT_plusSN = [];
+            var TTplusSN = [];
             for (var i = 0; i < data.length; i++) {
-              TT_plusSN[i] = {
+              TTplusSN[i] = {
                 sn:data[i].dv_sn,
                 con:data[i].dv_con
               };
             }
-            
+            req.session.TTplusSN = TTplusSN;
+            console.log(req.session.TTplusSN);
+
             console.log("is_TTcloud : " + req.session.is_TTcloud);
             console.log("is_TTplus : " + req.session.is_TTplus);
             console.log("TTplus : " + req.session.currentTTplusSN);
@@ -117,7 +119,7 @@ app.get('/index', function (req, res) {
                 id: userLoginId,
                 name: req.session.name,
                 TTCloudSN: TTCloudSN,
-                TTplusSN: TT_plusSN,
+                TTplusSN: TTplusSN,
                 currentTTCloudSN: req.session.currentTTCloudSN,
                 is_TTCloud : req.session.is_TTcloud,
                 is_TTplus: req.session.is_TTplus,
@@ -128,15 +130,15 @@ app.get('/index', function (req, res) {
               req.session.is_TTcloud == false;
               var currentTTplusSerialNumber = req.session.currentTTplusSN;
               for (var i = 0; i < data.length; i++){
-                if (TT_plusSN[i].sn === currentTTplusSerialNumber)
-                var currentTTCloudSerialNumber = TT_plusSN[i].con;
+                if (TTplusSN[i].sn === currentTTplusSerialNumber)
+                var currentTTCloudSerialNumber = TTplusSN[i].con;
               }
               res.render('main', {
                 is_logined: req.session.is_logined,
                 id: userLoginId,
                 name: req.session.name,
                 TTCloudSN: TTCloudSN,
-                TTplusSN: TT_plusSN,
+                TTplusSN: TTplusSN,
                 currentTTCloudSN: currentTTCloudSerialNumber,
                 currentTTplusSN: currentTTplusSerialNumber,
                 is_TTCloud : req.session.is_TTcloud,
@@ -152,7 +154,7 @@ app.get('/index', function (req, res) {
                 id: userLoginId,
                 name: req.session.name,
                 TTCloudSN: TTCloudSN,
-                TTplusSN: TT_plusSN,
+                TTplusSN: TTplusSN,
                 is_TTCloud: req.session.is_TTcloud,
                 is_TTplus: req.session.is_TTplus
               });
@@ -229,9 +231,156 @@ app.get('/download', async function (req, res){
     
   }else{
     const worksheet = workbook.addWorksheet(req.session.currentTTplusSN);
-    const filename = currentDate + req.session.currentTTplusSN + ".xlsx";
-    
+    const filename = currentDate + "_" + req.session.currentTTplusSN + ".xlsx";
+
+    var TTplusDataSet = req.session.TTplusData;
+
+    worksheet.columns = [
+      { header : "No", key: "no", width: 10 },
+      { header : "Timestamp", key: "timestamp", width: 45 },
+      { header : "Before Tref", key: "Tref_before", width: 25},
+      { header : "After Tref", key: "Tref_after", width: 25},
+      { header : "Before Theat", key: "Theat_before", width: 25},
+      { header : "After Tref", key: "Theat_after", width: 25},
+      { header : "Growth rate", key: "growth_rate", width: 25},
+      { header : "Battery Voltage", key: "batt_vol", width: 25},
+      { header : "Air Humidity", key: "air_humidity", width: 25},
+      { header : "Air Temperature", key: "air_temp", width: 25},
+      { header : "Stability", key: "stability", width: 25},
+      { header : "Water Stem", key: "stem", width: 25},
+      { header : "NI610", key: "NI610", width: 25},
+      { header : "NI680", key: "NI680", width: 25},
+      { header : "NI730", key: "NI730", width: 25},
+      { header : "NI760", key: "NI760", width: 25},
+      { header : "NI810", key: "NI810", width: 25},
+      { header : "NI860", key: "NI860", width: 25},
+      { header : "VLS450", key: "VLS450", width: 25},
+      { header : "VLS500", key: "VLS500", width: 25},
+      { header : "VLS550", key: "VLS550", width: 25},
+      { header : "VLS570", key: "VLS570", width: 25},
+      { header : "VLS600", key: "VLS600", width: 25},
+      { header : "VLS650", key: "VLS650", width: 25},
+    ];
+    for (var i = 0; i < TTplusDataSet.length; i++){
+      worksheet.addRow({
+        no: i, 
+        timestamp: TTplusDataSet[i].dt_time,
+        Tref_before: TTplusDataSet[i].dt_Tref_before,
+        Tref_after: TTplusDataSet[i].dt_Tref_after,
+        Theat_before: TTplusDataSet[i].dt_Theat_before,
+        Theat_after: TTplusDataSet[i].dt_Theat_after,
+        growth_rate: TTplusDataSet[i].dt_growth_rate,
+        batt_vol: TTplusDataSet[i].dt_battery_vol,
+        air_humidity: TTplusDataSet[i].dt_air_humidity,
+        air_temp: TTplusDataSet[i].dt_air_temp,
+        stability: TTplusDataSet[i].dt_stability,
+        stem: TTplusDataSet[i].dt_stem,
+        NI610: TTplusDataSet[i].dt_NI_610,
+        NI680: TTplusDataSet[i].dt_NI_680,
+        NI730: TTplusDataSet[i].dt_NI_730,
+        NI760: TTplusDataSet[i].dt_NI_760,
+        NI810: TTplusDataSet[i].dt_NI_810,
+        NI860: TTplusDataSet[i].dt_NI_860,
+        VLS450: TTplusDataSet[i].dt_VLS_450,
+        VLS500: TTplusDataSet[i].dt_VLS_500,
+        VLS550: TTplusDataSet[i].dt_VLS_550,
+        VLS570: TTplusDataSet[i].dt_VLS_570,
+        VLS600: TTplusDataSet[i].dt_VLS_600,
+        VLS650: TTplusDataSet[i].dt_VLS_650
+      });
+
+      
+    }
+    await workbook.xlsx.writeFile(filename).then(function(){
+      console.log("success");
+    });
+    const filepath = __dirname + '/' + filename;
+    res.set({
+      'Location': "/index",
+    });
+    //res.charset = 'UTF-8';
+    res.download(filepath);
   }
+
+});
+
+app.get('/setting', function(req, res){
+  console.log(req.session.act);
+  res.render('setting',{
+    is_logined: req.session.is_logined,
+    id: req.session.userid,
+    name: req.session.name,
+    TTCloudSN: req.session.TTCloudSN,
+    TTplusSN: req.session.TTplusSN,
+    is_TTCloud: req.session.is_TTcloud,
+    is_TTplus: req.session.is_TTplus,
+    act: req.session.act
+  });
+});
+
+app.get('/setting/:act', function (req, res){
+  req.session.act = req.params.act;
+  res.redirect('/setting');
+});
+
+app.post('/setting/register/check', function(req, res){
+  var deviceSN = req.body.dvSN;
+  var deviceType = req.body.dvType;
+  var deviceCon = req.body.dvCon;
+  var userID = 0;
+
+  connection.query('SELECT user_no FROM user WHERE user_id=?',[req.session.userid], function(err, data){
+    if (err) throw err;
+    
+    userID = data[0].user_no
+  });
+
+  connection.query('SELECT * FROM device WHERE dv_sn=?',[deviceSN], function(err, data){
+    if (err) throw err;
+
+    
+    if (data.length == 0) {
+      if (deviceType == "TTCloud") {
+        connection.query("INSERT INTO device (dv_sn, dv_type, dv_con, user_no) VALUES (?,?,?,?)"
+        ,[deviceSN, deviceType, deviceSN, userID]
+        ,function(err, rows){
+          if (err) throw err;
+          else {
+            console.log(data);
+            console.log('Device register Success TTCloud');
+            res.redirect('/setting');
+          }
+        });
+      } else if (deviceType == "TT+"){
+        connection.query("INSERT INTO device (dv_sn, dv_type, dv_con, user_no) VALUES (?,?,?,?)"
+        ,[deviceSN, deviceType, deviceCon, userID]
+        ,function(err, rows){
+          if (err) throw err;
+          else {
+            console.log('Device register Success TT+');
+            res.redirect('/setting');
+          }
+        }
+        );
+      } else {
+        res.send('<script>alert("두 개의 Type만 작성 가능합니다."); window.location.href = "/setting";</script>');
+      }
+    } else {
+      connection.query("UPDATE device SET user_no = ? WHERE dv_sn = ? AND dv_type =?"
+      ,[userID, deviceSN, deviceType]
+      ,function(err, data){
+        if (err) throw err;
+        else {
+          console.log('Device host changed');
+          res.redirect('/setting');
+        }
+      }
+      );
+    }
+  });
+});
+
+app.post('/setting/delete',function(req, res){
 
 });
 
@@ -262,14 +411,7 @@ app.get('/index/:TTCloud/:TTplus', function (req, res) {
                     +'d49.dt_NI_610, d49.dt_NI_680, d49.dt_NI_730, d49.dt_NI_760, d49.dt_NI_810, d49.dt_NI_860, d49.dt_VLS_450, d49.dt_VLS_500, d49.dt_VLS_550, d49.dt_VLS_570, d49.dt_VLS_600, d49.dt_VLS_650 '
                     +'FROM datatype_4D 4D LEFT JOIN datatype_49 d49 ON 4D.dv_sn = d49.dv_sn AND 4D.dt_time = d49.dt_time WHERE 4D.dv_sn = ? ORDER BY 4D.dt_time';
   connection.query(queryString, [req.params.TTplus], function(err, rows){
-    
     if (err) throw err;
-    var convert_TTplusData = [];
-    //Tref
-    for(var i = 0; i < rows.length; i++){
-    }
-
-    
     req.session.currentTTCloud = req.params.TTCloud;
     req.session.currentTTplusSN = req.params.TTplus;
     req.session.TTplusData = rows;
@@ -541,5 +683,8 @@ app.use(function (err, req, res, next) {
   res.send(err.message);
 });
 
+process.on("uncaughtException", function(err) { 
+  console.error("uncaughtException (Node is alive)", err); 
+});
 
 module.exports = app;

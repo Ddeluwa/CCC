@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>수목센서 관리 사이트</title>
+    
+    <!-- Custom fonts for this template-->
+    <link href="stylesheets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet">-->
+    <link href="stylesheets/custom.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="stylesheets/styles.199601a382cef5d41b07.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/354885cafc.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="javascripts/0.js"></script>
+    <script charset="utf-8" src="javascripts/6.js"></script>
+    <script charset="utf-8" src="javascripts/main.js"></script>
+    <script charset="utf-8" src="javascripts/scripts.js"></script>
+    <script charset="utf-8" src="javascripts/pollyfills.js"></script>
+    <script charset="utf-8" src="javascripts/runtime.js"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        .navbar[_ngcontent-c2]{border-bottom:3px solid #ddd}.navbar[_ngcontent-c2]
+        a[_ngcontent-c2]{cursor:pointer}@media (min-width:768px){.navbar-icon-label[_ngcontent-c2]{display:none}.navbar[_ngcontent-c2]
+        .navbar-badge[_ngcontent-c2]{position:relative;top:-3px;display:inline-block;float:none;margin:0 0 0 -8px;padding:1 2px;vertical-align:top;font-size:8px;font-weight:700;line-height:10px}}@media (max-width:768px){.mb-resp[_ngcontent-c2]{margin-bottom:1rem}}
+    </style>
+    <style>.tree-container[_ngcontent-c3]{height:85vh;overflow:auto}</style>
+</head>
+<body>
+    <app-root _nghost-c0 ng-version="7.0.2">
+        <router-outlet _ngcontent-c0=""></router-outlet>
+        <app-main _nghost-c1>
+            <app-header _ngcontent-c1 _nghost-c2>
+                <nav _ngcontent-c2 class="navbar navbar-expand-md navbar-light">
+                    <div _ngcontent-c2 class="container">
+                        <a _ngcontent-c2 class="navbar-brand" href="/">
+                            <img _ngcontent-c2 alt height="50" src="images/innonet.svg" width=50>
+                        </a>
+                        <button _ngcontent-c2 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+                            <span _ngcontent-c2 class="navbar-toggler-icon"></span>
+                            </span>
+                        </button>
+                        <div _ngcontent-c2 class="collapse navbar-collapse" id="navbarNav">
+                            <ul _ngcontent-c2 class="navbar-nav mr-auto">
+                                <li _ngcontent-c2="" class="nav-item active" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link" href="/index">
+                                        수목센서 
+                                    </a><!---->
+                                </li>
+                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link" href="/setting/register">
+                                        설정 
+                                    </a><!---->
+                                </li>
+                                <!--<li _ngcontent-c2="" class="nav-item active" ngbdropdown="" routerlinkactive="active">
+                                    <a _ngcontent-c2="" class="nav-link" href="/index">
+                                        수목센서 
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <ul _ngcontent-c2 class="navbar-nav ml-auto">
+                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link active" href="/index">
+                                        <%= name %> 
+                                    </a><!---->
+                                </li>
+                                <!--<li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active">
+                                    <a _ngcontent-c2="" class="nav-link" href="/mypage">
+                                        개인정보수정
+                                    </a>
+                                </li>-->
+                                <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
+                                    <a _ngcontent-c2="" class="nav-link" href="/logout">
+                                        로그아웃 
+                                    </a><!---->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </app-header>
+            <div _ngcontent-c1 class="container my-3">
+                <router-outlet _ngcontent-c1></router-outlet>
+                <app-monitor _nghost-c3>
+                    <div _ngcontent-c3 class="container">
+                        <div _ngcontent-c3 class="row">
+                            <tree-root _ngcontent-c3 class="col-2 tree-container">
+                                <tree-viewport>
+                                    <div class="ng-star-inserted" style="height: 410px;">
+                                        <div class="angular-tree-component">
+                                            <div class="ng-star-inserted" style="margin-top: 0px;">
+                                                <% for (var i = 0; i < TTCloudSN.length; i++) { %>
+                                                    <tree-node class="ng-star-inserted">
+                                                        <div class="tree-node-level-1 tree-node tree-node-collapsed ng-star-inserted">
+                                                            <tree-node-drop-slot class="ng-star-inserted">
+                                                                <div class="node-drop-slot"></div>
+                                                            </tree-node-drop-slot>
+                                                            <tree-node-wrapper>
+                                                                <div class="node-wrapper ng-star-inserted" style="padding-left:0px;">
+                                                                    <tree-node-expander>
+                                                                        <span class="toggle-children-wrapper ng-star-inserted toggle-children-wrapper-expanded">
+                                                                            <span class="toggle-children"></span>
+                                                                        </span>
+                                                                    </tree-node-expander>
+                                                                    <div class="node-content-wrapper" draggable="false">
+                                                                        <tree-node-content>
+                                                                            <span class="ng-star-inserted" onclick="location.href='/index/<%=TTCloudSN[i]%>'"><%= TTCloudSN[i] %></span>
+                                                                        </tree-node-content>
+                                                                    </div>
+                                                                </div>
+                                                            </tree-node-wrapper>
+                                                            <tree-node-children>
+                                                                <% for (var j = 0; j < TTplusSN.length; j++) { %>
+                                                                <% if (TTplusSN[j].con == TTCloudSN[i]) { %>    
+                                                                <div class="tree-children tree-children-no-padding ng-star-inserted" style>
+                                                                    <tree-node-collection class="ng-star-inserted">
+                                                                        <div class="ng-star-inserted" style="margin-top:0px;">
+                                                                            <div class="tree-node-level-2 tree-node tree-node-expanded ng-star-inserted">
+                                                                                <tree-node-drop-slot class="ng-star-inserted">
+                                                                                    <div class="node-drop-slot"></div>
+                                                                                </tree-node-drop-slot>
+                                                                                <tree-node-wrapper>
+                                                                                    <div class="node-wrapper ng-star-inserted" style="padding-left: 10px;">
+                                                                                        <tree-node-expander>
+                                                                                            <span class="toggle-children-wrapper toggle-children-wrapper-expanded ng-star-inserted">
+                                                                                                <span class="toggle-children"></span>
+                                                                                            </span>
+                                                                                        </tree-node-expander>
+                                                                                        <div class="node-content-wrapper" draggable="false">
+                                                                                            <tree-node-content>
+                                                                                                <span class="ng-star-inserted" onclick="location.href='/index/<%=TTCloudSN[i]%>/<%=TTplusSN[j].sn%>'">
+                                                                                                    <%= TTplusSN[j].sn %>
+                                                                                                </span>
+                                                                                            </tree-node-content>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </tree-node-wrapper>
+                                                                            </div>
+                                                                        </div>
+                                                                    </tree-node-collection>
+                                                                </div>
+                                                                <% } %>
+                                                                <% } %>
+                                                            </tree-node-children>
+                                                            <tree-node-drop-slot>
+                                                                <div class="node-drop-slot"></div>
+                                                            </tree-node-drop-slot>
+                                                        </div>
+                                                    </tree-node>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tree-viewport>
+                            </tree-root>
+                            <div _ngcontent-c3 class="col-10">
+                                <router-outlet _ngcontent-c3></router-outlet>
+                                    <app-group-monitor _nghost-c4 class="ng-star-inserted">
+                                        <% if (act == "register" || act == "undefined") { %>
+                                        <ul _ngcontent-c4 class="nav nav-tabs">
+                                            <li _ngcontent-c4 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c4 class="nav-link active" routerlinkactive="active" href="/setting/register">장비등록</a>
+                                            </li>
+                                            <li _ngcontent-c4 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c4 class="nav-link" routerlinkactive="active" href="/setting/delete">장비삭제</a>
+                                            </li>
+                                        </ul>
+                                        <app-group-detail _nghost-c5>
+                                            <div _ngcontent-c5 class="container my-3">
+                                                <app-group-form _ngcontent-c5 _nghost-c6>
+                                                    <form _ngcontent-c6 class="form-groupInfo p-3 ng-untouched ng-pristine ng-valid" novalidate method="POST" action="/setting/register/check">
+                                                        <div _ngcontent-c6 class="form-group row mb-3">
+                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvSN">시리얼번호</label>
+                                                            <div _ngcontent-c6 class="col-sm-10">
+                                                                <input _ngcontent-c6 class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="dvSN" id="dvSN" name="dvSN" type="text" placeholder="Serial Number">
+                                                            </div>
+                                                        </div>
+                                                        <div _ngcontent-c6 class="form-group row mb-3">
+                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvType">장비종류</label>
+                                                            <div _ngcontent-c6 class="col-sm-10">
+                                                                <input _ngcontent-c6 class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="dvType" id="dvType" name="dvType" type="text" placeholder="TTCloud/TT+">
+                                                            </div>
+                                                        </div>
+                                                        <div _ngcontent-c6 class="form-group row mb-3">
+                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvCon">상위장비</label>
+                                                            <div _ngcontent-c6 class="col-sm-10">
+                                                                <input _ngcontent-c6 class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="dvCon" id="dvCon" name="dvCon" type="text" placeholder="TTCloud Serial Number">
+                                                            </div>
+                                                        </div>
+                                                        <div _ngcontent-c6 class="d-flex flex-row justify-content-between">
+                                                            <button _ngcontent-c6 class="btn btn-lg btn-info" type="submit">
+                                                                저장
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </app-group-form>
+                                            </div>
+                                        </app-group-detail>
+                                        <% } else { %>
+                                        <ul _ngcontent-c4 class="nav nav-tabs">
+                                            <li _ngcontent-c4 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c4 class="nav-link" routerlinkactive="active" href="/setting/register">장비등록</a>
+                                            </li>
+                                            <li _ngcontent-c4 class="nav-item ng-star-inserted">
+                                                <a _ngcontent-c4 class="nav-link active" routerlinkactive="active" href="/setting/delete">장비삭제</a>
+                                            </li>
+                                        </ul>
+                                        <% } %>
+                                        <router-outlet _ngcontent-c4></router-outlet>
+                                        <app-group-info _nghost-c5 class="ng-star-inserted">
+                                            <perfect-scrollbar _ngcontent-c5 class="tab-container px-2">
+                                                <div style="position: static;" class="ps ps--active-y">
+                                                    <div class="ps-content">
+                                                        <div _ngcontent-c5 class="container h-60">
+                                                            <div _ngcontent-c5 class="table-container">
+                                                                <div style="position: static;" class="ps">
+                                                                    <div class="ps-content" style="height: 700px; overflow: auto;">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </perfect-scrollbar>
+                                        </app-group-info>
+                                    </app-group-monitor>
+                            </div>
+                        </div>
+                    </div>
+                </app-monitor>
+            </div>
+        </app-main>
+    </app-root>
+</body>
+</html>
