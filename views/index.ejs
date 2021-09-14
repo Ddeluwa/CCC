@@ -38,13 +38,15 @@
         <div _ngcontent-c1 class="container text-center">
             <form _ngcontent-c1 class="form-signin ng-pristine ng-invalid ng-touched" novalidate action="/login" method="POST">
                 <div _ngcontent-c1 class="border-bottom mb-4">
-                    <img _ngcontent-c1 alt class="mb-4" src="images/innonet.svg" width=120px height=100px>
+                    <a href="/index">
+                        <img _ngcontent-c1 alt class="mb-4" src="images/innonet.svg" width=120px height=100px>
+                    </a>
                     <h1 _ngcontent-c1 class="display-5">TreeTalker Data Site</h1>
                 </div>
                 <label _ngcontent-c1 class="sr-only" for="inputId">ID</label>
-                <input _ngcontent-c1 autocomplete="user-name" class="form-control ng-pristine ng-invalid ng-touched" formcontrolname="userId" id="userId" type="text" placeholder="Insert your ID" height="45px" name='id'>
+                <input _ngcontent-c1 autocomplete="user-name" class="form-control ng-pristine ng-invalid ng-touched" formcontrolname="userId" id="userId" type="text" placeholder="Insert your ID" height="45px" name='id' required>
                 <label _ngcontent-c1 class="sr-only" for="userSecret">Password</label>
-                <input _ngcontent-c1 autocomplete="new-password" class="form-control ng-pristine ng-invalid" formcontrolname="userSecret" id="userSecret" type="password" placeholder="Insert your password" name='pw'>
+                <input _ngcontent-c1 autocomplete="new-password" class="form-control ng-pristine ng-invalid" formcontrolname="userSecret" id="userSecret" type="password" placeholder="Insert your password" name='pw' required>
                 <!--<select _ngcontent-c1 class="custom-select">
                     <option _ngcontent-c1 value ="ko">ko</option>
                     <option _ngcontent-c1 value ="en">en</option>
@@ -54,7 +56,7 @@
                         <a _ngcontent-c1 class="text-muted" style="cursor: pointer; left: 15px;" href="/register">Join us</a>
                     </div>
                     <div _ngcontent-c1 class="col">
-                        <a _ngcontent-c1 class="text-muted" style="cursor: pointer;">Forget your info?</a>
+                        <a _ngcontent-c1 class="text-muted" style="cursor: pointer;" href="/findinfo">Forget your info?</a>
                     </div>
                 </div>
                 <button _ngcontent-c1 class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

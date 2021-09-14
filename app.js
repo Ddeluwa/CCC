@@ -441,8 +441,8 @@ app.post('/register', function (req, res) {
     console.log(data);
     if (data.length == 0) {
 
-      connection.query('INSERT INTO user(user_id, user_pw, user_name, user_email, user_pnum) VALUES(?,?,?,?,?)', [
-        id, pw, name, email, phone
+      connection.query('INSERT INTO user(user_id, user_pw, user_name, user_email, user_pnum, user_grade) VALUES(?,?,?,?,?,?)', [
+        id, pw, name, email, phone, 2
       ], function (err, data) {
         if (err) throw err;
         else {
@@ -468,6 +468,9 @@ app.post('/login', function (req, res) {
   var id = req.body.id;
   var pw = req.body.pw;
 
+  console.log(id)
+
+  if (id !== "" && pw !== ""){
   connection.query('SELECT * FROM user WHERE user_id=?', [id], function (err, data) {
     if (err) throw err;
 
@@ -494,11 +497,16 @@ app.post('/login', function (req, res) {
       console.log('Login fail');
       res.redirect('/index');
     }
-  });
+    });
+  } else if (id === ""|| pw === "") {
+    res.send('<script>alert("아이디나 비밀번호가 입력되지 않았습니다. 확인부탁드립니다."); window.location.href="/index"; </script>')
+  }
 });
 
 
-  
+app.get('/findinfo', function (req, res){
+  res.send('<script> alert("담당자 문의 : hjsung@innonet.net"); window.location.href="/index"; </script>');
+});  
 
 
 
