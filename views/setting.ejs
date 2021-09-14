@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>수목센서 관리 사이트</title>
+    <title>Treetalker Data Site</title>
     
     <!-- Custom fonts for this template-->
     <link href="stylesheets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -61,12 +61,12 @@
                             <ul _ngcontent-c2 class="navbar-nav mr-auto">
                                 <li _ngcontent-c2="" class="nav-item active" ngbdropdown="" routerlinkactive="active"><!---->
                                     <a _ngcontent-c2="" class="nav-link" href="/index">
-                                        수목센서 
+                                        TreeTalker 
                                     </a><!---->
                                 </li>
                                 <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
                                     <a _ngcontent-c2="" class="nav-link" href="/setting/register">
-                                        설정 
+                                        Settings 
                                     </a><!---->
                                 </li>
                                 <!--<li _ngcontent-c2="" class="nav-item active" ngbdropdown="" routerlinkactive="active">
@@ -88,7 +88,7 @@
                                 </li>-->
                                 <li _ngcontent-c2="" class="nav-item" ngbdropdown="" routerlinkactive="active"><!---->
                                     <a _ngcontent-c2="" class="nav-link" href="/logout">
-                                        로그아웃 
+                                        Logout 
                                     </a><!---->
                                 </li>
                             </ul>
@@ -176,37 +176,37 @@
                                         <% if (act == "register" || act == "undefined") { %>
                                         <ul _ngcontent-c4 class="nav nav-tabs">
                                             <li _ngcontent-c4 class="nav-item ng-star-inserted">
-                                                <a _ngcontent-c4 class="nav-link active" routerlinkactive="active" href="/setting/register">장비등록</a>
+                                                <a _ngcontent-c4 class="nav-link active" routerlinkactive="active" href="/setting/register">Register Device</a>
                                             </li>
-                                            <li _ngcontent-c4 class="nav-item ng-star-inserted">
+                                            <!--<li _ngcontent-c4 class="nav-item ng-star-inserted">
                                                 <a _ngcontent-c4 class="nav-link" routerlinkactive="active" href="/setting/delete">장비삭제</a>
-                                            </li>
+                                            </li>-->
                                         </ul>
                                         <app-group-detail _nghost-c5>
                                             <div _ngcontent-c5 class="container my-3">
                                                 <app-group-form _ngcontent-c5 _nghost-c6>
                                                     <form _ngcontent-c6 class="form-groupInfo p-3 ng-untouched ng-pristine ng-valid" novalidate method="POST" action="/setting/register/check">
                                                         <div _ngcontent-c6 class="form-group row mb-3">
-                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvSN">시리얼번호</label>
+                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvSN">Serial Number</label>
                                                             <div _ngcontent-c6 class="col-sm-10">
                                                                 <input _ngcontent-c6 class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="dvSN" id="dvSN" name="dvSN" type="text" placeholder="Serial Number">
                                                             </div>
                                                         </div>
                                                         <div _ngcontent-c6 class="form-group row mb-3">
-                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvType">장비종류</label>
+                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvType">Device Type</label>
                                                             <div _ngcontent-c6 class="col-sm-10">
                                                                 <input _ngcontent-c6 class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="dvType" id="dvType" name="dvType" type="text" placeholder="TTCloud/TT+">
                                                             </div>
                                                         </div>
                                                         <div _ngcontent-c6 class="form-group row mb-3">
-                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvCon">상위장비</label>
+                                                            <label _ngcontent-c6 class="col-sm-2 control-label" for="dvCon">Connected TTCloud</label>
                                                             <div _ngcontent-c6 class="col-sm-10">
                                                                 <input _ngcontent-c6 class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="dvCon" id="dvCon" name="dvCon" type="text" placeholder="TTCloud Serial Number">
                                                             </div>
                                                         </div>
                                                         <div _ngcontent-c6 class="d-flex flex-row justify-content-between">
                                                             <button _ngcontent-c6 class="btn btn-lg btn-info" type="submit">
-                                                                저장
+                                                                Save & Apply
                                                             </button>
                                                         </div>
                                                     </form>
@@ -216,11 +216,11 @@
                                         <% } else { %>
                                         <ul _ngcontent-c4 class="nav nav-tabs">
                                             <li _ngcontent-c4 class="nav-item ng-star-inserted">
-                                                <a _ngcontent-c4 class="nav-link" routerlinkactive="active" href="/setting/register">장비등록</a>
+                                                <a _ngcontent-c4 class="nav-link" routerlinkactive="active" href="/setting/register">Register Device</a>
                                             </li>
-                                            <li _ngcontent-c4 class="nav-item ng-star-inserted">
+                                            <!--<li _ngcontent-c4 class="nav-item ng-star-inserted">
                                                 <a _ngcontent-c4 class="nav-link active" routerlinkactive="active" href="/setting/delete">장비삭제</a>
-                                            </li>
+                                            </li>-->
                                         </ul>
                                         <% } %>
                                         <router-outlet _ngcontent-c4></router-outlet>
